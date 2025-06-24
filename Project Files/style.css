@@ -1,0 +1,98 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.background {
+    background: linear-gradient(to top, #a8e6cf, #dcedc1);
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+h1 {
+    color: #6a1b9a;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="file"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #6a1b9a;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #4a0072;
+}
+
+.separator {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* Butterfly animation */
+.butterfly {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://i.ibb.co/j6W0RbG/butterfly-icon.png');
+    background-size: cover;
+    animation: fly 10s infinite linear;
+}
+
+.butterfly1 {
+    top: 50%;
+    left: -60px;
+    animation-delay: 0s;
+}
+
+.butterfly2 {
+    top: 30%;
+    left: -100px;
+    animation-delay: 2s;
+}
+
+.butterfly3 {
+    top: 70%;
+    left: -80px;
+    animation-delay: 4s;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(100vw, -50vh) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}

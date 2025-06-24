@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result for {{ label.upper() }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to top, #a8e6cf 30%, #dcedc1 100%);
+            color: #4b0082;
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        img.butterfly-image {
+            max-width: 80%;
+            height: auto;
+            border: 3px solid #4b0082;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .description {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 0 auto;
+            max-width: 800px;
+            font-size: 16px;
+            color: #333;
+            text-align: justify;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #6a0dad;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: #4b0082;
+        }
+
+        .grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #2e8b57, #66bb6a);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .static-butterfly {
+            position: absolute;
+            font-size: 30px;
+        }
+
+        .b1 { top: 10%; left: 15%; transform: rotate(-10deg); }
+        .b2 { top: 20%; left: 80%; transform: rotate(10deg); }
+        .b3 { top: 50%; left: 25%; transform: rotate(-15deg); }
+        .b4 { top: 65%; left: 70%; transform: rotate(15deg); }
+        .b5 { top: 85%; left: 40%; transform: rotate(-5deg); }
+    </style>
+</head>
+<body>
+
+    <!-- Static Butterflies -->
+    <div class="static-butterfly b1">🦋</div>
+    <div class="static-butterfly b2">🦋</div>
+    <div class="static-butterfly b3">🦋</div>
+    <div class="static-butterfly b4">🦋</div>
+    <div class="static-butterfly b5">🦋</div>
+
+    <!-- Title -->
+    <h1>Result for: {{ label.upper() }}</h1>
+
+    <!-- Image -->
+    {% if image %}
+        <img src="{{ url_for('static', filename=image) }}" alt="{{ label }}" class="butterfly-image">
+    {% else %}
+        <p><strong>Image not available.</strong></p>
+    {% endif %}
+
+    <!-- Description -->
+    <div class="description">
+        {{ description if description else "No informative content found." }}
+    </div>
+
+    <!-- Back Button -->
+    <a class="back-button" href="{{ url_for('index') }}">← Back to Home</a>
+
+    <!-- Grass Bottom -->
+    <div class="grass"></div>
+
+</body>
+</html>
